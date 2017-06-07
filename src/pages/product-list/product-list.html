@@ -1,0 +1,52 @@
+<!--
+  Generated template for the ProductListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary"  hideBackButton="true">
+      <ion-buttons begin>
+      <button ion-button icon-only (click)="goMainMenu()">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+         <span class="title">Products list</span>
+          
+      </ion-buttons>
+    
+      <ion-buttons end>
+         <!-- Si tiene pedidos se mostrará el carrito -->
+          <button *ngIf="orderService.hasProducts()"  ion-button icon-only (click)="goOrderDetail()">
+              ({{ authService.getUserLogged() }}) <ion-icon name="cart"></ion-icon>
+              {{ orderService.getNumOrders() }}
+          </button>
+    </ion-buttons>  
+  </ion-navbar>
+    
+      
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+     <ion-item *ngFor="let product of mProducts">
+        <ion-thumbnail item-left>
+        <img src="{{product.image}}">
+      </ion-thumbnail>
+      <p>{{ product.product_name}} | {{ product.weight}} </p>
+      <p>{{ product.price}} </p>
+      <button ion-button item-right icon-only clear round  (click)="goProductDetail(product.id)">          
+        <ion-icon class="mybtn-icon" name="more"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item class="btn-item">
+      <button ion-button round block icon-only (click)="getNextPage()" >
+          More products 
+        <ion-icon class="mybtn-icon" name="add"></ion-icon>
+      </button>
+    </ion-item>        
+    </ion-list>
+
+</ion-content>

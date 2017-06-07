@@ -1,0 +1,80 @@
+<!--
+  Generated template for the OrderDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+        <ion-title>Order Detail</ion-title>
+      <ion-buttons end>
+           <button *ngIf="orderService.hasProducts()" disabled ion-button icon-only>
+                 ({{ authService.getUserLogged() }}) <ion-icon name="cart"></ion-icon>
+                  {{ orderService.getNumOrders() }}
+        </button>
+      </ion-buttons>
+       
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid>
+  <ion-row class="my-header">
+    <ion-col>
+      Name
+    </ion-col>
+    <ion-col>
+     Price
+    </ion-col>
+      <ion-col>
+          Quantity
+      </ion-col>
+      <ion-col>
+        Subtotal
+      </ion-col>
+  </ion-row>
+  <ion-row class="my-grid" *ngFor="let product of orderService.getUserOrderProvider()">
+      <ion-grid  >
+          <ion-row class="my-row">
+                <ion-col>
+                  {{ product.productName }}
+                </ion-col>
+                <ion-col>
+                 {{ product.productPrice }}€
+                </ion-col>
+                  <ion-col>
+                    {{ product.productQuantity }}                      
+                  </ion-col>
+                  <ion-col>
+                    {{ product.productSubTotal }}€
+                      
+                  </ion-col>
+          </ion-row>            
+          <ion-row class="my-row">
+              <ion-col class="my-buttons">
+                <ion-buttons end>
+                      <button ion-button icon-only color="light" (click)="orderService.incProductQuantity(product.productId)">
+                            <ion-icon name="add"></ion-icon>
+                         </button>
+                      <button ion-button icon-only end (click)="orderService.decProductQuantity(product.productId)">
+                            <ion-icon name="remove"></ion-icon>
+                         </button>
+                      <button ion-button icon-only (click)="orderService.dropProductById(product.productId)" title="Drop product">
+                            <ion-icon name="trash"></ion-icon>
+                           </button>
+                </ion-buttons>
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+   
+  </ion-row>
+  
+
+  <ion-row class="my-footer">
+      <ion-col>Total: {{ orderService.getTotalAmount() }}€</ion-col>
+  </ion-row>
+</ion-grid>
+    
+</ion-content>

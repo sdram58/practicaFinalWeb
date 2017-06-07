@@ -1,0 +1,31 @@
+page-order-detail {
+    $primary:    #488aff;
+    $secondary:  #32db64;
+    $danger:     #f53d3d;
+    $light:      #f4f4f4;
+    $dark:       #222;
+    $third:      #FE9A2E;
+    
+
+    .my-header{
+        background-color: $primary;
+        font-weight: bold;
+    }
+    
+    .my-grid:nth-child(odd) .my-row{
+        background-color: $third;
+    }
+    
+    
+    .my-buttons button{
+        background-color:$light;
+        color:black;
+    }
+    
+    .my-footer{
+        font-weight: bold;
+        font-size: 1.3em;
+        text-align: right;
+        background-color: $secondary;
+    }
+}

@@ -1,0 +1,65 @@
+<!--
+  Generated template for the MainPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+ <ion-navbar color="primary"  hideBackButton="true"> 
+     <ion-buttons begin>
+          <button ion-button icon-only disabled>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+         <span class="title">Main menu</span>
+    </ion-buttons>            
+      <ion-buttons end>
+         <!-- Si tiene pedidos se mostrará el carrito -->
+          <button *ngIf="orderService.hasProducts()"  ion-button (click)="goOrderDetail()">
+              ({{ authService.getUserLogged() }}) <ion-icon class="cart-icon" name="cart"></ion-icon>
+              {{ orderService.getNumOrders() }}
+          </button>
+        </ion-buttons> 
+  </ion-navbar> 
+
+</ion-header>
+
+
+<ion-content class="vertical-align-content">
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+            <button ion-button round block class="btns-main" (click)="goProducList()" >
+                <ion-icon class="icono-btn-main" name="appstore"></ion-icon>
+                Productos
+            </button>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+            <button ion-button round block class="btns-main" color="secondary" (click)="goDeliverTime()">
+                <ion-icon class="icono-btn-main" name="alarm"></ion-icon>
+                Tiempo de entrega
+            </button>
+        </ion-col>
+     </ion-row>
+     <ion-row>
+        <ion-col>
+            <button ion-button round block color="third" class="btns-main" (click)="goAboutPage()" >
+                <ion-icon class="icono-btn-main" name="contacts"></ion-icon>
+                Contacto
+            </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+            <button ion-button round block color="dark" class="btns-main" (click)="logOut()">
+                <ion-icon class="icono-btn-main" name="log-out"></ion-icon>
+                Desconectar
+            </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+
+</ion-content>

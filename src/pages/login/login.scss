@@ -1,0 +1,33 @@
+page-login {
+    $primary: #488aff;
+    #loginbtn{
+        padding:30px;
+        font-size: 1.2em;
+        width: 60%;
+        margin-left: 20%;
+        margin-top: 60px;
+    }
+    .icono-btn-login{
+        margin-left: 20px;
+    }
+    .col-center{
+        text-align: center;
+        margin-bottom: 1em;
+        color:$primary;
+    }
+    .col-center p{
+        color:$primary;
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+    .img-logo{        
+        height: 150px;
+        width: auto;
+        margin-bottom: 20px;
+    }
+    .col-center > * {
+        padding: 30px;
+    }
+    
+    
+}

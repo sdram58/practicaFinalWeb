@@ -1,0 +1,43 @@
+page-main {
+    .vertical-align-content > *
+    {
+         display: flex!important;
+         align-content: center!important;
+         align-items: center!important;       
+    }
+    
+    .icono-btn-main{
+        margin-right: 20px;
+        font-size: 1.3em;
+    }
+    
+    .btns-main{        
+        padding-bottom: 30px;
+        padding-top: 30px;
+        width: 60%;
+        box-sizing: border-box;
+        font-size: 1.2em;
+        margin-left: 20%;
+    }
+    
+    .mybtn-icon{
+        margin-left: 1.5em;
+        margin-right: 0.75em;
+    }
+    
+    .cart-icon{
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+    }
+    
+    .menu-icon{
+        margin-right: 2em;
+    }
+    
+    .title{
+        font-weight: bold;
+        font-size: 1.4em;
+        color:white;
+        padding: 2em;
+    }
+}
